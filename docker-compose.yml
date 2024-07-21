@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  morph:
+    build: .
+    container_name: morph
+    volumes:
+      - J:\data:/data
+    ports:
+      - "8545:8545"
+      - "8551:8551"
+    environment:
+      - TZ=UTC
