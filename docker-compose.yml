@@ -4,7 +4,7 @@ services:
     build: .
     container_name: morph
     volumes:
-      - J:\data:/data
+      - /path/to/data_directory:/data
     ports:
       - "8545:8545"
       - "8551:8551"
