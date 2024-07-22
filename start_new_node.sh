@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 保存当前目录
+CURRENT_DIR=$(pwd)
+
 # 设置变量
 DATA_DIR=./data
 DATA_ZIP_URL="https://raw.githubusercontent.com/morph-l2/config-template/main/holesky/data.zip"
@@ -23,8 +26,9 @@ echo "解压数据文件"
 unzip data.zip
 # rand -hex 32 生成一个 32 字节的随机十六进制字符串
 openssl rand -hex 32 > jwt-secret.txt
-cd ..
 
+# 切回原始目录
+cd "$CURRENT_DIR"
 
 # 构建 Docker 镜像
 echo "构建 Docker 镜像"
