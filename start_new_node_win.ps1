@@ -1,6 +1,15 @@
 # Set variables
 # Data directory on drive J
-$DATA_DIR = "J:\data"
+param (
+    [Parameter(Mandatory=$true)]
+    [string]$DATA_DIR
+)
+
+if (-not (Test-Path $DATA_DIR)) {
+    Write-Error "The specified data directory does not exist."
+    exit 1
+}
+
 $DATA_ZIP_URL = "https://raw.githubusercontent.com/morph-l2/config-template/main/holesky/data.zip"
 $DOCKER_COMPOSE_FILE = "docker-compose.yml"
 

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
- # 设置变量
+# Check if a directory argument is passed
 if [ $# -eq 0 ]; then
   echo "Error: No directory argument provided."
   echo "Usage: $0 <data_directory>"
@@ -36,15 +35,15 @@ unzip data.zip
 # rand -hex 32 生成一个 32 字节的随机十六进制字符串
 openssl rand -hex 32 > jwt-secret.txt
 
-# 切回原始目录
-cd "$CURRENT_DIR"
+docker pull crazywty/morph-docker-morph:latest
 
-# 构建 Docker 镜像
-echo "构建 Docker 镜像"
-docker-compose build
-
-# 启动 Docker 容器
-echo "启动 Docker 容器"
-docker-compose up 
-
-echo "所有步骤完成。服务正在后台运行。"
+docker run -d --name morph \
+   -v "${DATA_DIR}:/data" \
+   -p 8545:8545 \
+   -p 8551:8551 \
+   -p 26658:26658 \
+   -p 26657:26657 \
+   -p 26656:26656 \
+   -p 26660:26660 \
+   -e TZ=UTC \
+   crazywty/morph-docker-morph
