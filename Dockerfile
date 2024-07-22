@@ -24,11 +24,13 @@ RUN cd morph && make nccc_geth
 RUN cd morph/node && make build
 
 # 复制入口脚本
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN mkdir -p /usr/local/app/
+COPY entrypoint.sh /usr/local/app/
+
+RUN chmod +x /usr/local/app/entrypoint.sh
 
 # 暴露端口
 EXPOSE 8545 8546 8551 26657 30303 30303/udp
 
 # 定义入口脚本
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/app/entrypoint.sh"]

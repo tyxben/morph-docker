@@ -1,10 +1,10 @@
-version: '3.8'
+version: '3.0'
 services:
   morph:
     build: .
     container_name: morph
     volumes:
-      - /home/wty/morph-docker/data:/data
+      - J:\data:/data
     ports:
       - "8545:8545"
       - "8551:8551"
