@@ -37,6 +37,8 @@
        environment:
          - TZ=UTC
    ```
+3. 重启
+    进入到当前目录 执行 `docker-compose up`
 
 ## Windows
 
@@ -81,12 +83,14 @@
        environment:
          - TZ=UTC
    ```
+3. 重启
+    进入到当前目录 执行 `docker-compose up`
 
 ## Docker Image
 
-- Windows: 执行 `start_docker_image_win.ps1 -DATA_DIR "J:\data"`
+- Windows: 执行 `.\start_docker_image_win.ps1 -DATA_DIR "J:\data"`
   - 替换**"J:\data"** 为本地目录
-- Mac/Linux: 执行 `start_docker_image_unix.sh /path/to/data_directory`
+- Mac/Linux: 执行 `sh start_docker_image_unix.sh /path/to/data_directory`
   - 替换**/path/to/data_directory** 为本地目录
 
 ## 重启
