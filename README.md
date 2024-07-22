@@ -17,7 +17,7 @@
    - **/path/to/data_directory** 需要替换成自己的目录
    - **注意**：`start_new_node.sh` 会删除本地节点数据。请先备份 `jwt-secret.txt` 和相关数据。
 
-2. 修改 `docker-compose` 文件中的映射目录。将 `start_new_node.sh` 中的 `DATA_DIR=./data` 目录修改为您自己的目录根 上面设置的需要 /path/to/data_directory对应的目录需要一致。
+2. 修改 `docker-compose` 文件中的映射目录。目录修改为您自己的目录，设置的目录需要一致。
 
    ```yaml
    version: '3.8'
